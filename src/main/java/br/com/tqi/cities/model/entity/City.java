@@ -17,12 +17,24 @@ public class City {
     @GeneratedValue(generator = "cidade_id_seq", strategy = GenerationType.SEQUENCE)
     private Long id;
 
+    @Column(name = "nome", nullable = false)
     private String nome;
+
+    @Column(name = "uf")
     private int uf;
+
+    @Column(name = "ibge", nullable = false)
     private int ibge;
+
+    @Column(name = "lat_lon", nullable = false)
     private double lat_lon;
+
+    @Column(name = "latitude", nullable = false)
     private double latitude;
+
+    @Column(name = "longitude", nullable = false)
     private double longitude;
+
     @Column(name = "cod_tom", nullable = false)
     private short codTom ;
 

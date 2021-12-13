@@ -1,6 +1,5 @@
 package br.com.tqi.cities.model.entity;
 
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -18,13 +17,16 @@ public class Country {
     @GeneratedValue(generator = "pais_id_seq", strategy = GenerationType.SEQUENCE)
     private Long id;
 
+    @Column(name = "nome", nullable = false)
     private String nome;
 
     @Column(name = "nome_pt", nullable = false)
     private String nomePT;
 
+    @Column(name = "sigla", nullable = false)
     private String sigla;
 
+    @Column(name = "bacen", nullable = false)
     private Integer bacen;
 
 }
