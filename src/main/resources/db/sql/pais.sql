@@ -20,6 +20,9 @@ COMMENT ON TABLE pais
 COMMENT ON COLUMN pais.sigla
   IS 'ISO 3166-1 Alpha2';
 
+ALTER SEQUENCE pais_id_seq
+    RESTART 99;
+
 --
 -- Inserindo dados na tabela "pais"
 --
