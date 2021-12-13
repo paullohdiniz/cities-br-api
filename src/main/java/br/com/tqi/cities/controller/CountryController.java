@@ -15,11 +15,7 @@ import java.util.List;
 public class CountryController {
 
     @Autowired
-    private final CountryService countryService;
-
-    public CountryController(CountryService countryService) {
-        this.countryService = countryService;
-    }
+    private CountryService countryService;
 
     @GetMapping
     public ResponseEntity<List<Country>> getCity(){

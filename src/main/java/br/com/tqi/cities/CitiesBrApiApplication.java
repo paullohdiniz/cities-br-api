@@ -1,4 +1,4 @@
-package br.com.tqi.cities.application;
+package br.com.tqi.cities;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
