@@ -8,8 +8,8 @@ import javax.persistence.*;
 
 @Entity
 @Getter
-@Builder
 @NoArgsConstructor
+@Table(name = "PAIS")
 public class Country {
 
     @Id
@@ -20,7 +20,8 @@ public class Country {
 
     private String nome;
 
-    private String nome_pt;
+    @Column(name = "nome_pt", nullable = false)
+    private String nomePT;
 
     private String sigla;
 
