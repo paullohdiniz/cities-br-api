@@ -26,6 +26,8 @@ public class State {
     @Column(name = "ibge", nullable = false)
     private int ibge;
 
+    @ManyToOne
+    @JoinColumn(name = "pais")
     private Country pais;
 
     @Column(name = "ddd", nullable = false)

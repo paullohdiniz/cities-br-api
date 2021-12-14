@@ -27,7 +27,7 @@ public class City {
     private int ibge;
 
     @Column(name = "lat_lon", nullable = false)
-    private double lat_lon;
+    private String lat_lon;
 
     @Column(name = "latitude", nullable = false)
     private double latitude;
