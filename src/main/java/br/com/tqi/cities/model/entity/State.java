@@ -1,14 +1,23 @@
 package br.com.tqi.cities.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.vladmihalcea.hibernate.type.json.JsonBinaryType;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.Type;
+import org.hibernate.annotations.TypeDef;
+import org.hibernate.annotations.TypeDefs;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Getter
 @NoArgsConstructor
 @Table(name = "ESTADO")
+@TypeDefs({
+        @TypeDef(name = "jsonb", typeClass = JsonBinaryType.class)
+})
 public class State {
 
     @Id
@@ -30,7 +39,8 @@ public class State {
     @JoinColumn(name = "pais")
     private Country pais;
 
-    @Column(name = "ddd", nullable = false)
-    private String ddd;
+    @Type(type = "jsonb")
+    @Column(name = "ddd", nullable = false, columnDefinition = "jsonb")
+    private List<Integer> ddd;
 
 }
