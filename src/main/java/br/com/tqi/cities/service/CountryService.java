@@ -1,5 +1,6 @@
 package br.com.tqi.cities.service;
 
+import br.com.tqi.cities.model.dto.CountryDTO;
 import br.com.tqi.cities.model.entity.Country;
 import br.com.tqi.cities.repository.CountryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,5 +16,10 @@ public class CountryService {
 
     public Page<Country> getAll(Pageable page){
         return countryRepository.findAll(page);
+    }
+
+    public CountryDTO getCountryById(Long id) {
+        Country country = countryRepository.getById(id);
+        return CountryDTO.map(country.getId(), country.getNome(), country.getNomePT(), country.getSigla(), country.getBacen());
     }
 }
