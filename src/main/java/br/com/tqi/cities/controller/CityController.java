@@ -7,10 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/cities")
@@ -33,9 +30,9 @@ public class CityController {
         return ResponseEntity.ok(cityService.getById(id));
     }
 
-    @GetMapping("/distance/{first_city_id}/{second_city_id}")
-    public ResponseEntity<Double> getDistanceBetweenCity(@PathVariable("first_city_id") Long first_city_id,
-                                                          @PathVariable("second_city_id") Long second_city_id){
+    @GetMapping("/distance/")
+    public ResponseEntity<Double> getDistanceBetweenCity(@RequestParam("first_city_id") Long first_city_id,
+                                                          @RequestParam("second_city_id") Long second_city_id){
         return ResponseEntity.ok(cityService.getDistanceBetweenCity(first_city_id, second_city_id));
     }
 }
