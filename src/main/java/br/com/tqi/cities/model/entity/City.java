@@ -1,8 +1,9 @@
 package br.com.tqi.cities.model.entity;
 
-import com.vladmihalcea.hibernate.type.json.JsonBinaryType;
+import br.com.tqi.cities.model.dto.PointType;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.Type;
 import org.hibernate.annotations.TypeDef;
 import org.hibernate.annotations.TypeDefs;
 import org.springframework.data.geo.Point;
@@ -15,7 +16,7 @@ import java.io.Serializable;
 @NoArgsConstructor
 @Table(name = "CIDADE")
 @TypeDefs({
-        @TypeDef(name = "POINT", typeClass = Point.class)
+        @TypeDef(name = "POINT", typeClass = PointType.class)
 })
 public class City implements Serializable {
 
@@ -36,7 +37,8 @@ public class City implements Serializable {
     @Column(name = "ibge", nullable = false)
     private int ibge;
 
-    @Column(name = "lat_lon", columnDefinition = "POINT", nullable = false)
+    @Type(type = "POINT")
+    @Column(name = "lat_lon", nullable = false)
     private Point lat_lon;
 
     @Column(name = "latitude", nullable = false)
