@@ -35,4 +35,10 @@ public class CityController {
                                                           @RequestParam("second_city_id") Long second_city_id){
         return ResponseEntity.ok(cityService.getDistanceBetweenCity(first_city_id, second_city_id));
     }
+
+    @GetMapping("/distance_cube/")
+    public ResponseEntity<Double> getDistanceBetweenCityForCube(@RequestParam("first_city_id") Long first_city_id,
+                                                         @RequestParam("second_city_id") Long second_city_id){
+        return ResponseEntity.ok(cityService.getDistanceBetweenCityForCube(first_city_id, second_city_id));
+    }
 }

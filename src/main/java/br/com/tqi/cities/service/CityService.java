@@ -27,7 +27,16 @@ public class CityService {
     public double getDistanceBetweenCity(Long firstCityId, Long secondCityId) {
         Point firstPoint = cityRepository.getById(firstCityId).getLat_lon();
         Point secondPoint = cityRepository.getById(secondCityId).getLat_lon();
-        assert secondPoint != null;
         return Math.sqrt((secondPoint.getY() - firstPoint.getY()) * (secondPoint.getY() - firstPoint.getY()) + (secondPoint.getX() - firstPoint.getX()) * (secondPoint.getX() - firstPoint.getX()));
+    }
+
+    public double getDistanceBetweenCityForCube(Long firstCityId, Long secondCityId) {
+        Point firstPoint = cityRepository.getById(firstCityId).getLat_lon();
+        Point secondPoint = cityRepository.getById(secondCityId).getLat_lon();
+        return getDistanceBetweenCityForPoint(firstPoint.getX(), firstPoint.getY(), secondPoint.getX(), secondPoint.getY());
+    }
+
+    private double getDistanceBetweenCityForPoint(final Double lat1, final Double lon1, final Double lat2, final Double lon2) {
+        return cityRepository.distanceByCube(lat1, lon1, lat2, lon2);
     }
 }
