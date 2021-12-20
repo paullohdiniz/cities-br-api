@@ -35,7 +35,7 @@ public class CityService {
         Point secondPoint = cityRepository.getById(secondCityId).getLat_lon();
         return getDistanceBetweenCityForPoint(firstPoint.getX(), firstPoint.getY(), secondPoint.getX(), secondPoint.getY());
     }
-
+//TODO devemos instalar o path de cube no postgres
     private double getDistanceBetweenCityForPoint(final Double lat1, final Double lon1, final Double lat2, final Double lon2) {
         return cityRepository.distanceByCube(lat1, lon1, lat2, lon2);
     }
