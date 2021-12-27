@@ -4,7 +4,7 @@ plugins {
 	id 'java'
 }
 
-group = 'br.com.tqi'
+group = 'br.com.tqi.cities'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '8'
 
